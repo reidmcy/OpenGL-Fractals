@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 Reid. All rights reserved.
 //
 
-#include "Julia.h"
 #include "Setup.h"
-#include <cstdlib>
-#include <random>
 
 std::string window = "Fractal";
 bool square = true;
@@ -18,3 +15,9 @@ int main(int argc, char * argv[]) {
     readArgs<double>(window, &argc, argv);
     mainloop<double>(&argc, argv);
 }
+
+/*
+Add pan and zoom
+Add export as image
+Add Cantour set
+*/

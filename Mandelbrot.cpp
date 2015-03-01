@@ -40,7 +40,7 @@ Mfield<T>::Mfield(int sx, int sy, bool square) : Field<T>(sx, sy, square) {
                     this->pfield[y][x].makeExterior();
                     this->pfield[y][x].set(0,0);
                 } else {
-                this->pfield[y][x].setSquare((x - centx) / centx, (y - centy) / centy, 2 * (x - centx) / cent, 2 * (y - centy) / cent);
+                    this->pfield[y][x].set((x - centx) / centx, (y - centy) / centy, 0,0);
                     static_cast<Mpoint<T>*>(this->pfield[y])[x].setC(2 * (x - centx) / cent, 2 * (y - centy) / cent);
                 }
             }
@@ -49,7 +49,7 @@ Mfield<T>::Mfield(int sx, int sy, bool square) : Field<T>(sx, sy, square) {
         for (int y = 0; y < this->dimy; y++) {
             this->pfield[y] = new Mpoint<T>[this->dimx];
             for (int x = 0; x < this->dimx; x++) {
-                this->pfield[y][x].set(2 * (x - centx) / centx, 2 * (y - centy) / centy);
+                this->pfield[y][x].set(2 * (x - centx) / centx, 2 * (y - centy) / centy, 0, 0);
                 static_cast<Mpoint<T>*>(this->pfield[y])[x].setC(2 * (x - centx) / centx, 2 * (y - centy) / centy);
             }
         }

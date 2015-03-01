@@ -7,9 +7,6 @@
 //
 
 #include <iostream>
-#include <thread>
-#include <math.h>
-
 #include "Julia.h"
 
 template <class T>
@@ -46,7 +43,7 @@ Jfield<T>::Jfield(int sx, int sy, T cr, T ci, bool square) : Field<T>(sx, sy, sq
                     this->pfield[y][x].set(0,0);
                     static_cast<Jpoint<T>*>(this->pfield[y])[x].setC(0, 0);
                 } else {
-                    this->pfield[y][x].setSquare((x - centx) / centx, (y - centy) / centy, 2 * (x - centx) / cent, 2 * (y - centy) / cent);
+                    this->pfield[y][x].set((x - centx) / centx, (y - centy) / centy, 2 * (x - centx) / cent, 2 * (y - centy) / cent);
                     static_cast<Jpoint<T>*>(this->pfield[y])[x].setC(cr, ci);
                 }
             }
@@ -83,7 +80,7 @@ void Jfield<T>::restart(T cr, T ci) {
             for (int x = 0; x < this->dimx; x++) {
                 if ( std::abs(2 * (x - centx)) > dim || std::abs(2 * (y - centy)) > dim) {
                 } else {
-                this->pfield[y][x].resetSquare((x - centx) / centx, (y - centy) / centy, 2 * (x - centx) / cent, 2 * (y - centy) / cent);
+                this->pfield[y][x].reset((x - centx) / centx, (y - centy) / centy, 2 * (x - centx) / cent, 2 * (y - centy) / cent);
                 static_cast<Jpoint<T>*>(this->pfield[y])[x].setC(cr, ci);
                 }
             }

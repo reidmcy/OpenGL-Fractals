@@ -10,7 +10,6 @@
 #define __Fractal__Julia__
 
 #include "Points.h"
-#include <thread>
 
 template <class T>
 class Jpoint : public Point<T>{
